@@ -62,7 +62,6 @@ if(d1 > d2){
   yab$selfAvg_1 = yab$selfAvg_1 *(d2/d1)
 }
 
-
 y1 = yab$ipet_1
 y2 = yab$ipet_2
 
