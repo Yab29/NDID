@@ -102,7 +102,7 @@ output = data.frame(yab$chrom1, yab$start1,yab$end1,
                    y1_norm, y2_norm,p.val, fdr,intensity)
 
 colnames(output) <- c("chrom1","start1", "end1", "chrom2",
-                      "start2", "end2", "Normalized_Ipet_1","Normalized_Ipet_2",
+                      "start2", "end2", "Normalized_ipet_1","Normalized_ipet_2",
                       "P-value","p.adjust", "intensity type")
 
 write.table(output, paste(output_prefix,"significant_interaction.txt",sep="_"), sep="\t", row.names = F, quote=FALSE)
