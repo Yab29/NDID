@@ -32,9 +32,10 @@ The input data should have such kind of variables arrangement. The  suffix 1 and
 Let us run the NDID on a given dataset, GM12878_MCF7.txt 
 -	*Rscript NDID.R  -i GM12878_MCF7.txt
 ### Result file
-We will get the result file named *out_significant_interaction.txt*. 
-|chrom1|	start1|	end1|	chrom2|	start2|	end2|	Normalized ipet1|Normalized ipet2|	P-value|	p.adjust|	intensity type|
-|-------|-------|------|------|--------|------|-------|---------|-------|----------|-------|-------|------|
+We will get the result file named *out_significant_interaction.txt*. <br />
+
+|chrom1 |start1 |end1  |chrom2|	start2|	end2|Normalized_ipet_1|Normalized_ipet_2|	P-value|p.adjust|intensity type|
+|-------|-------|------|------|-------|-----|----------------|----------------|--------|--------|--------------|
 |chr1	|39648742|39652714|chr1	|39654893|39662163 |3.83360974|	15.20362117|0.000798074	|0.022997704|2|
 
 ### Meaning of the columns:
