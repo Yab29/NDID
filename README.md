@@ -49,6 +49,6 @@ We will get the result file named *out_significant_interaction.txt*. <br />
 - **Normalized_ipet_2:**  normalized number of PETs in sample-2 <br />
 - **P-value:** This value represents the statistical significance of the interaction <br />
 - **p.adjust:**  p-value adjustment with Benjamini-Hockberg method (1995) <br />
-- **intensity type:**  1 and 2 represent decreasing and increasing interactions intensity, respectively <br />
+- **intensity type:**  0 and 1 represent decreasing and increasing interactions intensity, respectively <br />
 
 
