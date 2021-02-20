@@ -25,7 +25,6 @@ cat("----------------NDID is running----------------------------\n")
 ##----------------------------------------------------
 
 library(fANCOVA)
-library(tidyverse)
 library(qvalue)
 
 ##--------------------------------------------------------
@@ -93,20 +92,17 @@ intensity = c()
 
 for (i in 1:nrow(yab)) {
   if (M_norm[i] > 0) {
-    intensity[i] = "2"
-  } else 
     intensity[i] = "1"
+  } else 
+    intensity[i] = "0"
 } 
 
 output = data.frame(yab$chrom1, yab$start1,yab$end1, 
-                   yab$chrom2, yab$start2, yab$end2,y1,y2,
+                   yab$chrom2, yab$start2, yab$end2,
                    y1_norm, y2_norm,p.val, fdr,intensity)
 
 colnames(output) <- c("chrom1","start1", "end1", "chrom2",
-                      "start2", "end2","ipet_1","ipet_2",
-                      "Normalized_Ipet_1","Normalized_Ipet_2",
+                      "start2", "end2", "Normalized_Ipet_1","Normalized_Ipet_2",
                       "P-value","p.adjust", "intensity type")
 
-significant = output %>% filter(output$p.adjust < 0.05)
-
-write.table(significant, paste(output_prefix,"significant_interaction.txt",sep="_"), sep="\t", row.names = F, quote=FALSE)
+write.table(output, paste(output_prefix,"significant_interaction.txt",sep="_"), sep="\t", row.names = F, quote=FALSE)
