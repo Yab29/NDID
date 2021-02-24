@@ -49,7 +49,7 @@ The input data should have such kind of variables arrangement. The  suffix 1 and
          -h| --help       print help
 ### Example 
 Let us run the NDID on a given dataset, GM12878_MCF7.txt 
--	Rscript NDID.R  -i GM12878_MCF7.txt
+-	Rscript NDID.R  -i *GM12878_MCF7.txt*
 ### Result file
 We will get the result file named *out_significant_interaction.txt*. <br />
 
