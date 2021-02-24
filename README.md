@@ -6,7 +6,24 @@
 > 2) &nbsp; fANCOVA (≥ 0.5.1)<br />
 > 3) &nbsp; qvalue ( ≥ 2.15.0) <br />
 ### Data Pre-processing
-The data pre-processing has two steps. In the first step, we need to process the two ChIA-PET raw datasets using ChIA-PET Tool V3 (Li et al., 2019). In the second step, new anchors will be defined from the processed results; that is, the two processed data's anchors will be merged and considered the unique anchors. Using the newly defined anchors, we need to re-processed the raw data using an option *--INPUT_ANCHOR_FILE* in ChIA-PET Tool. From the ChIA-PET Tool output files, the *out.cluster.FDRfiltered.txt* will be used for downstream analysis in NDID. Finally, we will find the overlap results between the two processed results using bedtools pairToPair. We considered the anchors' location, interaction frequency, and self-ligation PETs in each anchor (it used to measure the anchor enrichment) from the overlapped results. When we overlapped the two processed dataset results, we have a chance to find unique interactions only in one dataset. Therefore, we substituted a small interaction frequency (IF=1) for the corresponding dataset. The anchor enrichment is computed from the out.spet file in the ChIA-PET Tool V3 output. It computed for anchor1 (chrom1, start1, end1) and anchor2 (chrom2, start2, end2)  separately and took the average values using the following commands.  
+The data pre-processing has two steps. In the first step, we need to process the two ChIA-PET raw datasets using ChIA-PET Tool V3 (Li et al., 2019). In the second step, new anchors will be defined from the processed results; that is, the two processed data's anchors will be merged and considered the unique anchors. Using the newly defined anchors, we need to re-processed the raw data using an option *--INPUT_ANCHOR_FILE* in ChIA-PET Tool. 
+
+**Example**: for processing the GM12878 versus MCF7 datasets, we will use the following ChIA-PET Tool V3 command lines:
+> 1) &nbsp; For the first-step analysis:  we will use the following command lines for GM12878 and MCF7 datasets, respectively. <br />
+
+java -jar ChIA-PET.jar --mode 1 --fastq1 GM12878_1.fastq --fastq2 GM12878_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1 --output Output_GM12878 --prefix GM12878 
+
+java -jar ChIA-PET.jar --mode 1 --fastq1 MCF7_1.fastq --fastq2 MCF7_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1 --output Output_MCF7 --prefix MCF7 
+
+> 1) &nbsp; For the second-step analysis: we will use the defined anchors from the first step, namely Anchor.bed.<br />
+
+java -jar ChIA-PET.jar --mode 1 --fastq1 GM12878_1.fastq --fastq2 GM12878_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1  --INPUT_ANCHOR_FILE Anchor.bed --output Output_GM12878 --prefix GM12878_MCF7 
+
+java -jar ChIA-PET.jar --mode 1 --fastq1 MCF7_1.fastq --fastq2 MCF7_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1 INPUT_ANCHOR_FILE Anchor.bed --output Output_MCF7 --prefix MCF7_GM12878 
+
+**Remark**: for detailed information on ChIA-PET Tool V3 data analysis, please visit the [ChIA-PET Tool V3](https://github.com/GuoliangLi-HZAU/ChIA-PET_Tool_V3).
+
+From the ChIA-PET Tool output files, the *out.cluster.FDRfiltered.txt* will be used for downstream analysis in NDID. Finally, we will find the overlap results between the two processed results using bedtools pairToPair. We considered the anchors' location, interaction frequency, and self-ligation PETs in each anchor (it used to measure the anchor enrichment) from the overlapped results. When we overlapped the two processed dataset results, we have a chance to find unique interactions only in one dataset. Therefore, we substituted a small interaction frequency (IF=1) for the corresponding dataset. The anchor enrichment is computed from the out.spet file in the ChIA-PET Tool V3 output. It computed for anchor1 (chrom1, start1, end1) and anchor2 (chrom2, start2, end2)  separately and took the average values using the following commands.  
 > 1) &nbsp; awk '{if($2<$5){print $1"\t"$2"\t"$5}else{print $1"\t"$5"\t"$2}}' out.spet  > out.spet.bed3 <br />
 > 2) &nbsp; bedtools coverage -a Anchor1.bed -b out.spet.bed3|cut -f4  > self1.bed <br />
 > 3) &nbsp; bedtools coverage -a Anchor2.bed -b out.spet.bed3|cut -f4  > self2.bed <br />
