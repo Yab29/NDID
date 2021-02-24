@@ -15,11 +15,12 @@ The data pre-processing has two steps. In the first step, we need to process the
 
 		java -jar ChIA-PET.jar --mode 1 --fastq1 MCF7_1.fastq --fastq2 MCF7_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1 --output Output_MCF7 --prefix MCF7 
 
-> 1) &nbsp; For the second-step analysis: we will use the defined anchors from the first step, namely Anchor.bed.<br />
+> 1) &nbsp; For the second-step analysis: we will use the defined anchor from the first step, namely Anchor.bed.<br />
 
 		java -jar ChIA-PET.jar --mode 1 --fastq1 GM12878_1.fastq --fastq2 GM12878_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1  --INPUT_ANCHOR_FILE Anchor.bed --output Output_GM12878 --prefix GM12878_MCF7 
 
 		java -jar ChIA-PET.jar --mode 1 --fastq1 MCF7_1.fastq --fastq2 MCF7_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1 INPUT_ANCHOR_FILE Anchor.bed --output Output_MCF7 --prefix MCF7_GM12878 
+
 
 **Remark**: for detailed information on ChIA-PET Tool V3 data analysis, please visit the [ChIA-PET Tool V3](https://github.com/GuoliangLi-HZAU/ChIA-PET_Tool_V3).
 
