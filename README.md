@@ -8,7 +8,8 @@
 ### Data Pre-processing
 The data pre-processing has two steps. In the first step, we need to process the two ChIA-PET raw datasets using ChIA-PET Tool V3 (Li et al., 2019). In the second step, new anchors will be defined from the processed results; that is, the two processed data's anchors will be merged and considered the unique anchors. Using the newly defined anchors, we need to re-processed the raw data using an option *--INPUT_ANCHOR_FILE* in ChIA-PET Tool. 
 
-**Example**: for processing the GM12878 versus MCF7 datasets, we will use the following ChIA-PET Tool V3 command lines:
+**Example**: for processing the GM12878 versus MCF7 datasets, we will use the following ChIA-PET Tool V3 command lines:<br />
+
 **1)** &nbsp; **For the first-step analysis:**  we will use the following command lines for GM12878 and MCF7 datasets, respectively. <br />
 
 		java -jar ChIA-PET.jar --mode 1 --fastq1 GM12878_1.fastq --fastq2 GM12878_2.fastq --linker ChIA-PET_Tool_V3/linker/linker_long.txt --minimum_linker_alignment_score 14 --GENOME_INDEX hg19.fa --GENOME_LENGTH 3E9 --CHROM_SIZE_INFO ChIA-PET_Tool_V3/chromInfo/hg19.chromSize.txt --CYTOBAND_DATA ChIA-PET_Tool_V3/chromInfo/hg19_cytoBandIdeo.txt --SPECIES 1 --output Output_GM12878 --prefix GM12878 
