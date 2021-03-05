@@ -29,7 +29,7 @@ From the ChIA-PET Tool output files, the *out.cluster.FDRfiltered.txt* will be u
 > 3) &nbsp; bedtools coverage -a Anchor2.bed -b out.spet.bed3|cut -f4  > self2.bed <br />
 > 3) &nbsp; then compute the average of it and call the variable name “selfAvg” <br />
 ### Input files
-The input data should have such kind of variables arrangement. The  suffix 1 and 2 indicate the values belogs to sampel-1 and sample-2 respectively. 
+The input data should have such kind of variables arrangement. The  suffix 1 and 2 indicate the values belogs to sample-1 and sample-2 respectively. 
 |chrom1 |start1 |end1  |chrom2 |start2 |end2  |ipet_1 |selfAvg_1|	ipet_2|	selfAvg_2|
 |-------|-------|------|------|--------|------|-------|---------|-------|----------|
 |chr1|	27882430|	27885761|	chr1|	27925635|	27937736|	46|	704|	20|	135.5|
