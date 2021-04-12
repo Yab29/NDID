@@ -1,4 +1,3 @@
-##recommend use new version of R
 library(getopt)
 ##--------------------------------------------------------------
 spec = matrix(c(
