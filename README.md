@@ -70,4 +70,4 @@ We will get the result file named *out_significant_interaction.txt*. <br />
 
 -----------------------------------------------------------------------------------------------------------------
 
-#### &nbsp;CopyRight &#169; 2021 [Guoliang's Lab](http://guolianglab.org/subpages/REASERACH/publications.php), All Rights Reserved
+#### &nbsp;CopyRight &#169; 2021 [Guoliang's Lab](http://glab.hzau.edu.cn/index.php), All Rights Reserved
