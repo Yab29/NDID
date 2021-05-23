@@ -84,5 +84,5 @@ NDID<-function(input_file,output_prefix){
                         "start2", "end2", "Normalized_ipet_1","Normalized_ipet_2",
                         "P-value","p.adjust", "intensity type")
 
-  write.table(output, paste(output_prefix,".txt",sep="_"), sep="\t", row.names = F, quote=FALSE)
+  write.table(output, paste(output_prefix,".txt"), sep="\t", row.names = F, quote=FALSE)
 }
