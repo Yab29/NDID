@@ -40,14 +40,17 @@ The input data should have such kind of variables arrangement. The  suffix 1 and
 > 4) &nbsp;RAD21 ChIA-PET data from human H9:<br /> https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE127034
 > 5) &nbsp;RAD21 ChIA-PET data from human GM12878:<br /> https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE127053
 ### Usage
-	Rscript NDID.R -h
-  	Usage: NDID.R [-[-input|i] <character>] [-[-prefix|p] [<character>]] [-[-help|h]]
-         -i| --input      input file
-         -p| --prefix     output prefix (default "out")
-         -h| --help       print help
+	library(devtools)
+	devtools::install_github("Yab29/NDID")
+	library(fANCOVA)
+	library(qvalue)
+	library(NDID)
+	
+	setwd()   # Set your working directory 
+	NDID("input_file","output_prefix")
 ### Example 
 Let us run the NDID on a given dataset, GM12878_MCF7.txt 
--	Rscript NDID.R  -i *GM12878_MCF7.txt*
+-	NDID("GM12878_MCF7.txt","test")
 ### Result file
 We will get the result file named *out_significant_interaction.txt*. <br />
 
