@@ -52,7 +52,7 @@ The input data should have such kind of variables arrangement. The  suffix 1 and
 Let us run the NDID on a given dataset, GM12878_MCF7.txt 
 -	NDID("GM12878_MCF7.txt","test")
 ### Result file
-We will get the result file named *out_significant_interaction.txt*. <br />
+We will get the result file named *test.txt*. <br />
 
 |chrom1 |start1 |end1  |chrom2|	start2|	end2|Normalized_ipet_1|Normalized_ipet_2|	P-value|p.adjust|intensity type|
 |-------|-------|------|------|-------|-----|----------------|----------------|--------|--------|--------------|
