@@ -1,0 +1,17 @@
+Package: NDID
+Type: Package
+Title: NDID: Data Normalization and Differential Chromatin Interactions Detection from ChIA-PET
+Version: 1.0.0
+Author: Yibeltal Arega
+Maintainer: Guoliang Li <guoliang.li@mail.hzau.edu.cn>
+Description: Chromatin Interaction Analysis with Paired-End Tag (ChIA-PET) sequencing is a technology to study genome-wide long-range chromatin interactions bound by protein factors. 
+    NDID is a statistical technique for the joint normalization and differential chromatin interactions detection from ChIA-PET experiments. 
+Depends:
+	R (>= 3.4.0)
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Imports:
+    fANCOVA (>= 0.5.1),
+    qvalue (>= 2.15.0)
+RoxygenNote: 7.1.1
