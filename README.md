@@ -71,7 +71,7 @@ We will get the result file named *test.txt*. <br />
 - **p.adjust:**  p-value adjustment with Benjamini-Hockberg method (1995) <br />
 - **intensity type:**  0 and 1 represent decreasing and increasing interactions intensity, respectively <br />
 
-Remark: the test data is available [here](http://glab.hzau.edu.cn/download/)
+###**Remark**: the test data is available [here](http://glab.hzau.edu.cn/download/)
 -----------------------------------------------------------------------------------------------------------------
 
 #### &nbsp;CopyRight &#169; 2021 [Guoliang's Lab](http://glab.hzau.edu.cn/index.php), All Rights Reserved
