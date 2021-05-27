@@ -3,8 +3,9 @@
 **Ch**romatin **I**nteraction **A**nalysis with **P**aired-**E**nd **T**ag (**ChIA-PET**) sequencing is a technology to study genome-wide long-range chromatin interactions bound by protein factors. **NDID** is a statistical technique for the joint normalization and differential chromatin interactions detection from ChIA-PET experiments. 
 ### The NDID requires the following dependencies:
 > 1) &nbsp; R (≥3.4.0) <br />
-> 2) &nbsp; fANCOVA (≥ 0.5.1)<br />
-> 3) &nbsp; qvalue ( ≥ 2.15.0) <br />
+> 2) &nbsp; devtools (≥ 2.3.1) <br /> 
+> 3) &nbsp; fANCOVA (≥ 0.5.1)<br />
+> 4) &nbsp; qvalue ( ≥ 2.15.0) <br />
 ### Data Pre-processing
 The data pre-processing has two steps. In the first step, we need to process the two ChIA-PET raw datasets using ChIA-PET Tool V3 (Li et al., 2019). In the second step, new anchors will be defined from the processed results; that is, the two processed data's anchors will be merged and considered the unique anchors. Using the newly defined anchors, we need to re-processed the raw data using an option *--INPUT_ANCHOR_FILE* in ChIA-PET Tool. 
 
